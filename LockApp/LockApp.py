@@ -121,6 +121,6 @@ if __name__ == '__main__':
     gc = gspread.authorize(credentials) 
     val = gc.open('angel19db').sheet1.get_all_values()
     df = pd.DataFrame(val[1:],columns=val[0])
-    VALID_IDS = list(df['senderid'].values)
+    VALID_IDS = list(df['packageid'].values)
 
     LoginApp().run()
