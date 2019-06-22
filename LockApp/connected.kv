@@ -1,0 +1,28 @@
+<Connected>:
+	canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "background.png"
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [10,200,10,50]
+        spacing: 50
+        
+        Label:
+            text: "[color=#445882][font=Lato-Black]Đã xác nhận mã."
+            font_size: 32
+            markup: True
+
+		
+        Label:
+            text: "[color=#445882][font=Lato-Black]Xin cho bưu kiện vào ngăn tủ được mở."
+            font_size: 32
+            markup: True
+
+        Button:
+            text: "[color=#ffffff][font=Lato-Black]Trở về."
+            font_size: 24
+            markup:True
+			on_press: root.disconnect()
