@@ -16,9 +16,9 @@ from kivy.core.window import Window
 
 from connected import Connected
 
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
-import pandas as pd
+# import gspread
+# from oauth2client.service_account import ServiceAccountCredentials
+# import pandas as pd
 
 
 class Login(Screen):
@@ -59,7 +59,6 @@ class Loginfail(Screen):
         else:
             self.manager.transition = SlideTransition()
             self.manager.current = 'loginfail'
-            self.manager.get_screen('login').resetForm()
 
         app.config.read(app.get_application_config())
         app.config.write()
@@ -112,9 +111,9 @@ class LoginApp(App):
         )
 
 if __name__ == '__main__':
-    print('accesing database...')
-    scope = ['https://spreadsheets.google.com/feeds',
-         'https://www.googleapis.com/auth/drive']
+    # print('accesing database...')
+    # scope = ['https://spreadsheets.google.com/feeds',
+    #      'https://www.googleapis.com/auth/drive']
 
     # credentials = ServiceAccountCredentials.from_json_keyfile_name('./angelhack19-1a419ced9dcf.json', scope)
     

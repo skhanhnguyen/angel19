@@ -1,0 +1,108 @@
+#:include connected.kv
+
+
+
+
+
+
+<Login>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "background.png"
+
+    BoxLayout
+        id: login_layout
+        orientation: 'vertical'
+        padding: [10,200,10,50]
+        spacing: 50
+
+        Label:
+            text: '[color=#445882][font=Lato-Black]Xin vui lòng nhập mã'
+            font_size: 32
+            markup: True
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            TextInput:
+                id: login
+                multiline:False
+                font_size: 32
+                halign: 'center'
+        BoxLayout:
+            orientation: 'vertical'
+
+
+            RelativeLayout:
+                pos: self.parent.pos
+                size: self.parent.size
+
+            Button:
+                text: '[color=#ffffff][font=Lato-Black]XÁC NHẬN'
+                font_size: 24
+                markup:True
+                halign: 'center'
+                size: 200, 50
+                on_press: root.do_login(login.text, '123')
+
+
+<Loginfail>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "background.png"
+
+    BoxLayout
+        id: login_layout
+        orientation: 'vertical'
+        padding: [10,200,10,50]
+        spacing: 50
+
+        Label:
+            text: '[color=#445882][font=Lato-Black]SmartLocker không tìm thấy mã của bạn'
+            font_size: 32
+            markup: True
+
+        Label:
+            text: '[color=#445882][font=Lato-Black]Xin vui lòng nhập lại mã'
+            font_size: 32
+            markup: True
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            TextInput:
+                id: login
+                multiline:False
+                font_size: 32
+                halign: 'center'
+
+        Button:
+            text: '[color=#ffffff][font=Lato-Black]Xác nhận'
+            font_size: 24
+            markup:True
+            on_press: root.do_login(login.text, '123')
+
+
+<Full>:
+    BoxLayout
+        id: login_layout
+        orientation: 'vertical'
+        padding: [10,50,10,50]
+        spacing: 50
+
+        Label:
+            text: '[color=#445882][font=Lato-Black]SmartLocker này hiện đã đầy. Xin thông cảm.'
+            font_size: 32
+            markup: True
+
+        Button:
+            text: '[color=#ffffff][font=Lato-Black]Thu bưu kiện'
+            font_size: 24
+            markup:True
+
+
+            on_press: root.do_login(login.text, '123')

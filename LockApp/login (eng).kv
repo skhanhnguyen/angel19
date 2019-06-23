@@ -1,0 +1,129 @@
+<Connected>:
+	canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "background.png"
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [10,200,10,50]
+        spacing: 50
+        
+        Label:
+            text: "[color=#445882]Code confirmed."
+            font_size: 32
+            markup: True
+
+		
+        Label:
+            text: "[color=#445882]Please place the package in the open locker."
+            font_size: 32
+            markup: True
+
+        Button:
+            text: "[color=#ffffff]Return."
+            font_size: 24
+            markup:True
+			on_press: root.disconnect()
+<Login>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "background.png"
+
+    BoxLayout
+        id: login_layout
+        orientation: 'vertical'
+        padding: [10,200,10,50]
+        spacing: 50
+
+        Label:
+            text: '[color=#445882]Please enter your code'
+            font_size: 32
+            markup: True
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            TextInput:
+                id: login
+                multiline:False
+                font_size: 32
+                halign: 'center'
+        BoxLayout:
+            orientation: 'vertical'
+
+
+            RelativeLayout:
+                pos: self.parent.pos
+                size: self.parent.size
+
+            Button:
+                text: '[color=#ffffff]CONFIRM'
+                font_size: 24
+                markup:True
+                halign: 'center'
+                size: 200, 50
+                on_press: root.do_login(login.text, '123')
+
+
+<Loginfail>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "background.png"
+
+    BoxLayout
+        id: login_layout
+        orientation: 'vertical'
+        padding: [10,200,10,50]
+        spacing: 50
+
+        Label:
+            text: '[color=#445882]SmartLocker could not find your package'
+            font_size: 32
+            markup: True
+
+        Label:
+            text: '[color=#445882]Please try again'
+            font_size: 32
+            markup: True
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            TextInput:
+                id: login
+                multiline:False
+                font_size: 32
+                halign: 'center'
+
+        Button:
+            text: '[color=#ffffff]CONFIRM'
+            font_size: 24
+            markup:True
+            on_press: root.do_login(login.text, '123')
+
+
+<Full>:
+    BoxLayout
+        id: login_layout
+        orientation: 'vertical'
+        padding: [10,50,10,50]
+        spacing: 50
+
+        Label:
+            text: '[color=#445882]This SmartLocker is full. Sorry for the inconvenience.'
+            font_size: 32
+            markup: True
+
+        Button:
+            text: '[color=#ffffff]Packages collected.'
+            font_size: 24
+            markup:True
+
+
+            on_press: root.do_login(login.text, '123')
