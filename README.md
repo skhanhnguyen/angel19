@@ -9,7 +9,7 @@ Techs: python, kivy, C#
 
 # Usage: LockApp
 
-Install dependencies. Use a conda environment/virtualenv if you're neat.
+Install dependencies. Please use conda to guarantee performance.
 
 ```bash
 cd ./LockApp

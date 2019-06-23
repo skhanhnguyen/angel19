@@ -20,7 +20,6 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 
-# VALID_IDS = ('1234','abcd')
 
 class Login(Screen):
     def do_login(self, loginText, passwordText):
@@ -60,6 +59,7 @@ class Loginfail(Screen):
         else:
             self.manager.transition = SlideTransition()
             self.manager.current = 'loginfail'
+            self.manager.get_screen('login').resetForm()
 
         app.config.read(app.get_application_config())
         app.config.write()
@@ -116,11 +116,12 @@ if __name__ == '__main__':
     scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 
-    credentials = ServiceAccountCredentials.from_json_keyfile_name('./angelhack19-1a419ced9dcf.json', scope)
+    # credentials = ServiceAccountCredentials.from_json_keyfile_name('./angelhack19-1a419ced9dcf.json', scope)
     
-    gc = gspread.authorize(credentials) 
-    val = gc.open('angel19db').sheet1.get_all_values()
-    df = pd.DataFrame(val[1:],columns=val[0])
-    VALID_IDS = list(df['packageid'].values)
+    # gc = gspread.authorize(credentials) 
+    # val = gc.open('angel19db').sheet1.get_all_values()
+    # df = pd.DataFrame(val[1:],columns=val[0])
+    # VALID_IDS = list(df['packageid'].values)
 
+    VALID_IDS = ('1234','abcd')
     LoginApp().run()

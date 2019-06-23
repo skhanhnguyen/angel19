@@ -31,12 +31,21 @@
                 multiline:False
                 font_size: 32
                 halign: 'center'
+        BoxLayout:
+            orientation: 'vertical'
 
-        Button:
-            text: '[color=#ffffff][font=Lato-Black]Xác nhận'
-            font_size: 24
-            markup:True
-            on_press: root.do_login(login.text, '123')
+
+            RelativeLayout:
+                pos: self.parent.pos
+                size: self.parent.size
+
+            Button:
+                text: '[color=#ffffff][font=Lato-Black]XÁC NHẬN'
+                font_size: 24
+                markup:True
+                halign: 'center'
+                size: 200, 50
+                on_press: root.do_login(login.text, '123')
 
 
 <Loginfail>:
